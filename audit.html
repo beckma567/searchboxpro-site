@@ -9,7 +9,7 @@
         :root {
             --primary: #667eea;
             --primary-dark: #5a67d8;
-            --secondary: #764ba2;
+            --secondary: #FFC107;
             --dark: #1a202c;
             --light: #f7fafc;
             --gray: #718096;
@@ -346,15 +346,76 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
             .card {
-                padding: 2rem;
+                padding: 1.5rem;
+                border-radius: 15px;
             }
             
             h1 {
                 font-size: 1.5rem;
             }
             
+            .subtitle {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .form-group {
+                margin-bottom: 1rem;
+            }
+            
+            input[type="text"],
+            input[type="url"],
+            input[type="email"] {
+                padding: 0.875rem;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+            
+            .checkbox-group {
+                gap: 0.5rem;
+            }
+            
+            .checkbox-group label {
+                font-size: 0.85rem;
+            }
+            
+            .btn-submit {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+            
+            .trust-signals {
+                flex-direction: column;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+            }
+            
+            /* Processing State */
+            .processing h1 {
+                font-size: 1.25rem;
+            }
+            
+            .spinner {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .check-item {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Results State */
             .score-circle {
                 width: 150px;
                 height: 150px;
@@ -362,6 +423,64 @@
             
             .score-number {
                 font-size: 3rem;
+            }
+            
+            .status-message {
+                font-size: 1rem;
+                padding: 0.75rem;
+            }
+            
+            .findings {
+                padding: 1rem;
+                margin: 1.5rem 0;
+            }
+            
+            .findings h3 {
+                font-size: 1.1rem;
+            }
+            
+            .cta-box {
+                padding: 1.5rem;
+            }
+            
+            .cta-box h3 {
+                font-size: 1.25rem;
+            }
+            
+            .btn-cta {
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .card {
+                padding: 1.25rem;
+            }
+            
+            h1 {
+                font-size: 1.35rem;
+            }
+            
+            .score-circle {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .score-number {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Touch Device Optimizations */
+        @media (hover: none) {
+            .btn-submit:hover,
+            .btn-cta:hover {
+                transform: none;
             }
         }
     </style>
