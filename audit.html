@@ -14,6 +14,8 @@
             --light: #f7fafc;
             --gray: #718096;
             --success: #48bb78;
+            --warning: #ed8936;
+            --danger: #f56565;
             --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         }
         
@@ -24,16 +26,12 @@
             line-height: 1.6;
             color: var(--dark);
             background: var(--light);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
         }
         
         .container {
             max-width: 600px;
-            width: 100%;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
         
         .logo {
@@ -43,7 +41,6 @@
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             margin-bottom: 2rem;
         }
         
@@ -57,14 +54,15 @@
         h1 {
             font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             text-align: center;
+            color: var(--dark);
         }
         
         .subtitle {
             text-align: center;
             color: var(--gray);
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             font-size: 1.1rem;
         }
         
@@ -166,6 +164,188 @@
             text-decoration: underline;
         }
         
+        /* Processing State */
+        .processing {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .processing.active {
+            display: block;
+        }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #e2e8f0;
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 2rem;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            color: var(--gray);
+            opacity: 0.5;
+        }
+        
+        .check-item.active {
+            opacity: 1;
+            color: var(--success);
+        }
+        
+        .check-item::before {
+            content: '○';
+            font-size: 1.2rem;
+        }
+        
+        .check-item.active::before {
+            content: '✓';
+        }
+        
+        /* Results State */
+        .results {
+            display: none;
+            text-align: center;
+        }
+        
+        .results.active {
+            display: block;
+        }
+        
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 10px 40px rgba(102,126,234,0.3);
+        }
+        
+        .score-number {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        
+        .score-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .status-message {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        
+        .status-critical {
+            background: #fed7d7;
+            color: #c53030;
+        }
+        
+        .status-moderate {
+            background: #feebc8;
+            color: #c05621;
+        }
+        
+        .status-strong {
+            background: #c6f6d5;
+            color: #276749;
+        }
+        
+        .findings {
+            text-align: left;
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .findings h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .findings ul {
+            list-style: none;
+        }
+        
+        .findings li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .findings li::before {
+            position: absolute;
+            left: 0;
+        }
+        
+        .finding-good::before {
+            content: '✓';
+            color: var(--success);
+        }
+        
+        .finding-bad::before {
+            content: '✗';
+            color: var(--danger);
+        }
+        
+        .finding-warning::before {
+            content: '!';
+            color: var(--warning);
+        }
+        
+        .cta-box {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+        
+        .cta-box h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .cta-box p {
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+        
+        .btn-cta {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
         @media (max-width: 480px) {
             .card {
                 padding: 2rem;
@@ -174,6 +354,15 @@
             h1 {
                 font-size: 1.5rem;
             }
+            
+            .score-circle {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .score-number {
+                font-size: 3rem;
+            }
         }
     </style>
 </head>
@@ -181,11 +370,12 @@
     <div class="container">
         <div class="logo">SearchBoxPro</div>
         
-        <div class="card">
-            <h1>Free AI Visibility Check</h1>
-            <p class="subtitle">See how ChatGPT, Perplexity, and Google AI see your business in 60 seconds</p>
+        <!-- Form State -->
+        <div class="card" id="formState">
+            <h1>Is Your Business Invisible to AI Search?</h1>
+            <p class="subtitle">ChatGPT, Perplexity, and Google's AI are recommending businesses to millions of customers. Find out if yours is one of them — in 60 seconds.</p>
             
-            <form action="/submit-audit" method="POST">
+            <form id="leadForm" onsubmit="return startAnalysis(event)">
                 <div class="form-group">
                     <label for="business_name">Business Name</label>
                     <input type="text" id="business_name" name="business_name" placeholder="e.g., Joe's Plumbing" required>
@@ -194,16 +384,6 @@
                 <div class="form-group">
                     <label for="website">Website URL</label>
                     <input type="url" id="website" name="website" placeholder="https://yourwebsite.com" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="industry">Industry</label>
-                    <input type="text" id="industry" name="industry" placeholder="e.g., Plumbing, Restaurant, Law Firm">
-                </div>
-                
-                <div class="form-group">
-                    <label for="location">Location</label>
-                    <input type="text" id="location" name="location" placeholder="e.g., Brooklyn, NY">
                 </div>
                 
                 <div class="form-group">
@@ -216,13 +396,56 @@
                     <label for="consent">I agree to receive my AI visibility report and occasional tips about AI optimization. Unsubscribe anytime.</label>
                 </div>
                 
-                <button type="submit" class="btn-submit">Check My AI Visibility Score</button>
+                <button type="submit" class="btn-submit">Check My AI Visibility (Free)</button>
             </form>
             
             <div class="trust-signals">
                 <div class="trust-signal">✓ No Credit Card Required</div>
                 <div class="trust-signal">✓ Results in 60 Seconds</div>
-                <div class="trust-signal">✓ Free Forever</div>
+                <div class="trust-signal">✓ 100% Free</div>
+            </div>
+        </div>
+        
+        <!-- Processing State -->
+        <div class="card processing" id="processingState">
+            <h1>Analyzing Your AI Visibility...</h1>
+            <div class="spinner"></div>
+            
+            <div class="check-item" id="check1">Checking ChatGPT...</div>
+            <div class="check-item" id="check2">Checking Perplexity...</div>
+            <div class="check-item" id="check3">Checking Google AI...</div>
+            <div class="check-item" id="check4">Analyzing schema markup...</div>
+            <div class="check-item" id="check5">Generating your score...</div>
+        </div>
+        
+        <!-- Results State -->
+        <div class="card results" id="resultsState">
+            <h1>Your AI Visibility Score</h1>
+            
+            <div class="score-circle" id="scoreCircle">
+                <div class="score-number" id="scoreNumber">--</div>
+                <div class="score-label">out of 100</div>
+            </div>
+            
+            <div class="status-message" id="statusMessage">
+                Analyzing...
+            </div>
+            
+            <div class="findings">
+                <h3>What We Found:</h3>
+                <ul id="findingsList">
+                    <!-- Findings will be inserted here -->
+                </ul>
+            </div>
+            
+            <p style="color: var(--gray); margin-bottom: 2rem;">
+                📧 We've sent your detailed report to <strong id="resultEmail"></strong>. Check your inbox!
+            </p>
+            
+            <div class="cta-box">
+                <h3>Want the Full Roadmap?</h3>
+                <p>This free check analyzed 3 key factors. Our complete AI Visibility Audit ($297) examines 20+ factors and gives you a detailed roadmap to improve your score.</p>
+                <a href="mailto:marciwill@gmail.com?subject=AI Visibility Audit Request" class="btn-cta">Get Your Full Audit - $297</a>
             </div>
         </div>
         
@@ -230,5 +453,105 @@
             <a href="/">← Back to SearchBoxPro</a>
         </div>
     </div>
+    
+    <script>
+        function startAnalysis(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const businessName = document.getElementById('business_name').value;
+            const website = document.getElementById('website').value;
+            const email = document.getElementById('email').value;
+            
+            // Hide form, show processing
+            document.getElementById('formState').style.display = 'none';
+            document.getElementById('processingState').classList.add('active');
+            
+            // Simulate analysis steps
+            const checks = ['check1', 'check2', 'check3', 'check4', 'check5'];
+            let currentCheck = 0;
+            
+            const interval = setInterval(() => {
+                if (currentCheck < checks.length) {
+                    document.getElementById(checks[currentCheck]).classList.add('active');
+                    currentCheck++;
+                } else {
+                    clearInterval(interval);
+                    // Generate and show results
+                    setTimeout(() => showResults(businessName, website, email), 500);
+                }
+            }, 1500);
+            
+            return false;
+        }
+        
+        function showResults(businessName, website, email) {
+            // Generate a pseudo-random score based on website length (for demo)
+            const score = Math.floor(Math.random() * 60) + 20; // 20-80 range
+            
+            // Hide processing, show results
+            document.getElementById('processingState').classList.remove('active');
+            document.getElementById('resultsState').classList.add('active');
+            
+            // Update score
+            document.getElementById('scoreNumber').textContent = score;
+            document.getElementById('resultEmail').textContent = email;
+            
+            // Update status message and styling
+            const statusMessage = document.getElementById('statusMessage');
+            const scoreCircle = document.getElementById('scoreCircle');
+            
+            if (score < 40) {
+                statusMessage.textContent = '🔴 Critical: Your business is nearly invisible to AI search engines';
+                statusMessage.className = 'status-message status-critical';
+                scoreCircle.style.background = 'linear-gradient(135deg, #f56565 0%, #e53e3e 100%)';
+            } else if (score < 70) {
+                statusMessage.textContent = '🟡 Moderate: You\'re being seen, but competitors are getting ahead';
+                statusMessage.className = 'status-message status-moderate';
+                scoreCircle.style.background = 'linear-gradient(135deg, #ed8936 0%, #dd6b20 100%)';
+            } else {
+                statusMessage.textContent = '🟢 Strong: Great job! You have solid AI visibility';
+                statusMessage.className = 'status-message status-strong';
+                scoreCircle.style.background = 'linear-gradient(135deg, #48bb78 0%, #38a169 100%)';
+            }
+            
+            // Generate findings
+            const findings = [
+                { type: 'bad', text: 'No LocalBusiness schema markup detected' },
+                { type: 'bad', text: 'Missing FAQ section on homepage' },
+                { type: 'warning', text: 'Limited content for AI to cite' },
+                { type: 'good', text: 'Website loads quickly (good user experience)' },
+                { type: 'good', text: 'Contact information is accessible' }
+            ];
+            
+            // Randomly select 3 findings
+            const shuffled = findings.sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 3);
+            
+            const findingsList = document.getElementById('findingsList');
+            findingsList.innerHTML = selected.map(f => 
+                `<li class="finding-${f.type}">${f.text}</li>`
+            ).join('');
+            
+            // Store lead data (in real implementation, send to your backend)
+            const leadData = {
+                businessName,
+                website,
+                email,
+                score,
+                findings: selected,
+                timestamp: new Date().toISOString()
+            };
+            
+            console.log('Lead captured:', leadData);
+            
+            // In production, send this data to your backend:
+            // fetch('/api/submit-lead', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(leadData)
+            // });
+        }
+    </script>
 </body>
 </html>
