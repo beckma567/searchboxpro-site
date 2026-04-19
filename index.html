@@ -400,6 +400,164 @@
             box-shadow: 0 10px 20px rgba(102,126,234,0.3);
         }
         
+        /* Sample Report Section */
+        .sample-report {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .report-preview {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .report-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .report-header {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .report-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .report-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+        
+        .report-date {
+            font-size: 0.875rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+        
+        .report-content {
+            padding: 2rem;
+        }
+        
+        .report-score {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .score-display {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.25rem;
+        }
+        
+        .score-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .score-total {
+            font-size: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .score-status {
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: #ed8936;
+        }
+        
+        .report-findings, .report-actions, .report-expected {
+            margin-bottom: 2rem;
+        }
+        
+        .report-findings h4, .report-actions h4, .report-expected h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .report-findings ul, .report-expected ul {
+            list-style: none;
+        }
+        
+        .report-findings li, .report-expected li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .report-findings li:last-child, .report-expected li:last-child {
+            border-bottom: none;
+        }
+        
+        .report-actions ol {
+            list-style: none;
+            counter-reset: action-counter;
+        }
+        
+        .report-actions li {
+            counter-increment: action-counter;
+            padding: 1rem 0;
+            padding-left: 3rem;
+            position: relative;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .report-actions li::before {
+            content: counter(action-counter);
+            position: absolute;
+            left: 0;
+            width: 2rem;
+            height: 2rem;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+        
+        .report-cta {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .report-cta h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .report-cta p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
         /* How It Works */
         .how-it-works {
             padding: 100px 0;
@@ -728,6 +886,46 @@
             .btn-secondary:hover {
                 transform: none;
             }
+            
+            /* Sample Report Mobile */
+            .report-preview {
+                grid-template-columns: 1fr;
+            }
+            
+            .report-card {
+                order: 1;
+            }
+            
+            .report-cta {
+                order: 2;
+                position: static;
+            }
+            
+            .report-header {
+                padding: 1.5rem;
+            }
+            
+            .report-logo {
+                font-size: 1.25rem;
+            }
+            
+            .report-content {
+                padding: 1.5rem;
+            }
+            
+            .score-number {
+                font-size: 3rem;
+            }
+            
+            .report-actions li {
+                padding-left: 2.5rem;
+            }
+            
+            .report-actions li::before {
+                width: 1.75rem;
+                height: 1.75rem;
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -872,6 +1070,67 @@
                         <li>Quarterly strategy calls</li>
                     </ul>
                     <a href="/contact" class="btn-secondary">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Report Section -->
+    <section class="sample-report" id="sample-report">
+        <div class="container">
+            <div class="section-header">
+                <h2>See What You'll Get</h2>
+                <p>A preview of your comprehensive AI Visibility Audit</p>
+            </div>
+            <div class="report-preview">
+                <div class="report-card">
+                    <div class="report-header">
+                        <div class="report-logo">SearchBoxPro</div>
+                        <div class="report-title">AI Visibility Audit</div>
+                        <div class="report-date">Sample Report</div>
+                    </div>
+                    <div class="report-content">
+                        <div class="report-score">
+                            <div class="score-display">
+                                <span class="score-number">42</span>
+                                <span class="score-total">/100</span>
+                            </div>
+                            <div class="score-status">Moderate - Needs Improvement</div>
+                        </div>
+                        <div class="report-findings">
+                            <h4>🔍 Key Findings</h4>
+                            <ul>
+                                <li><strong>❌ Missing Schema Markup:</strong> No LocalBusiness or Organization structured data detected</li>
+                                <li><strong>⚠️ Limited AI Citations:</strong> Found in only 2 out of 50 AI search queries</li>
+                                <li><strong>❌ No FAQ Section:</strong> Missing high-value content AI engines prioritize</li>
+                                <li><strong>✅ Strong Reviews:</strong> 4.8/5 star rating with 127 reviews</li>
+                                <li><strong>✅ Contact Info:</strong> Complete NAP (Name, Address, Phone) consistency</li>
+                            </ul>
+                        </div>
+                        <div class="report-actions">
+                            <h4>🎯 Priority Actions</h4>
+                            <ol>
+                                <li><strong>Add LocalBusiness Schema</strong> — Implement JSON-LD markup (+15 points)</li>
+                                <li><strong>Create FAQ Section</strong> — 5-10 questions with detailed answers (+12 points)</li>
+                                <li><strong>Optimize for Voice Search</strong> — Natural language Q&A format (+8 points)</li>
+                                <li><strong>Build Citation Profile</strong> — Consistent listings across directories (+10 points)</li>
+                            </ol>
+                        </div>
+                        <div class="report-expected">
+                            <h4>📈 Expected Results</h4>
+                            <p>With these improvements, your AI Visibility Score could increase from <strong>42 to 75+</strong> within 60 days, resulting in:</p>
+                            <ul>
+                                <li>3-5x more AI citations and recommendations</li>
+                                <li>25-40% increase in qualified leads</li>
+                                <li>Improved local search rankings</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="report-cta">
+                    <h3>Get Your FREE Audit</h3>
+                    <p>See exactly how AI sees your business with a comprehensive 15-page report</p>
+                    <a href="/audit.html" class="btn-primary">Request My Free Audit</a>
                 </div>
             </div>
         </div>
