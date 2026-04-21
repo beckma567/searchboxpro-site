@@ -754,6 +754,73 @@
             margin-top: 0.25rem;
         }
         
+        /* What We Analyze Section */
+        .what-we-analyze {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .analysis-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .analysis-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(86, 20, 163, 0.1);
+        }
+        
+        .analysis-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .analysis-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .analysis-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        .analysis-cta {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .analysis-cta h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .analysis-cta p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
         /* CTA Section */
         .cta {
             background: var(--gradient);
@@ -1108,6 +1175,27 @@
             .trust-number {
                 font-size: 2rem;
             }
+            
+            /* What We Analyze Mobile */
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .analysis-card {
+                padding: 1.5rem;
+            }
+            
+            .analysis-icon {
+                font-size: 2.5rem;
+            }
+            
+            .analysis-cta {
+                padding: 2rem 1.5rem;
+            }
+            
+            .analysis-cta h3 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -1418,6 +1506,59 @@
                     <div class="trust-number">4.9/5</div>
                     <div class="trust-label">Average Rating</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Analyze Section -->
+    <section class="what-we-analyze" id="what-we-analyze">
+        <div class="container">
+            <div class="section-header">
+                <h2>What We Analyze For You</h2>
+                <p>Our comprehensive audit examines 6 critical areas of your AI visibility</p>
+            </div>
+            <div class="analysis-grid">
+                <div class="analysis-card">
+                    <div class="analysis-icon">🔍</div>
+                    <h3>AI Visibility Scan</h3>
+                    <p>Complete scan of your website's current presence in AI search tools like ChatGPT, Gemini, and Perplexity. We identify where you're visible and where you're invisible.</p>
+                </div>
+                
+                <div class="analysis-card">
+                    <div class="analysis-icon">📊</div>
+                    <h3>Schema & Structured Data</h3>
+                    <p>Analysis of technical markup (JSON-LD, microdata) that helps AI engines understand your business type, services, location, and contact information.</p>
+                </div>
+                
+                <div class="analysis-card">
+                    <div class="analysis-icon">🛡️</div>
+                    <h3>Trust Signal Analysis</h3>
+                    <p>Evaluation of E-E-A-T factors (Experience, Expertise, Authoritativeness, Trustworthiness) that influence whether AI recommends your business.</p>
+                </div>
+                
+                <div class="analysis-card">
+                    <div class="analysis-icon">📍</div>
+                    <h3>Business Information Check</h3>
+                    <p>Consistency review of your Name, Address, and Phone (NAP) across the web. Inconsistent info confuses AI and hurts your visibility.</p>
+                </div>
+                
+                <div class="analysis-card">
+                    <div class="analysis-icon">📝</div>
+                    <h3>Content Gap Review</h3>
+                    <p>Comparison with top competitors to identify missing content. We find the questions your customers are asking that you're not answering.</p>
+                </div>
+                
+                <div class="analysis-card">
+                    <div class="analysis-icon">⚡</div>
+                    <h3>Technical Performance</h3>
+                    <p>Mobile responsiveness, page speed, and security checks. Slow or broken sites get deprioritized by AI engines.</p>
+                </div>
+            </div>
+            
+            <div class="analysis-cta">
+                <h3>Get Your Complete Analysis</h3>
+                <p>All of this included in your FREE 15-page AI Visibility Audit</p>
+                <a href="/audit.html" class="btn-secondary">Request My Free Audit</a>
             </div>
         </div>
     </section>
